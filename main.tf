@@ -17,12 +17,12 @@ data "aws_ami" "example" {
   owners           = ["self"]
   filter {
     name   = "name"
-    values = ["Tanmoy-ubuntu-*"]
+    values = ["Tanmoy-ubuntu*"]
   }
 }
 
 resource "aws_instance" "myawsserver" {
-  ami = "data.aws_ami.example.id"
+  ami = data.aws_ami.example.id
   key_name = "tanmoy2"
   instance_type = "t2.micro"
 
