@@ -33,7 +33,7 @@ provisioner "remote-exec" {
     type     = "ssh"
     user     = "ubuntu"
     insecure = "true"
-    private_key = "${file("/tmp/Tanmoy.pem")}"
+    private_key = "${file("/tmp/tanmoy2.pem")}"
     host     =  aws_instance.myawsserver.public_ip
   }
 }
