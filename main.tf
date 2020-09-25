@@ -12,6 +12,15 @@ provider "aws" {
   region = "us-east-1"
 }
 
+data "aws_ami" "example" {
+  most_recent      = true
+  owners           = ["self"]
+  filter {
+    name   = "name"
+    values = ["Tanmoy-ubuntu-*"]
+  }
+}
+
 resource "aws_instance" "myawsserver" {
   ami = "ami-0b16724fe8e66e4ec"
   key_name = "tanmoy2"
@@ -19,7 +28,7 @@ resource "aws_instance" "myawsserver" {
 
   tags = {
     Name = "Tanmoy-Ubuntu-Server"
-    Env = "Dev"
+    Env = "Prod"
   }
   provisioner "local-exec" {
     command = "echo The servers IP address is ${self.public_ip} && echo ${self.private_ip} myawsserver >> /etc/hosts"
