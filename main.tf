@@ -14,7 +14,7 @@ provider "aws" {
 
 resource "aws_instance" "myawsserver" {
   ami = "ami-0b16724fe8e66e4ec"
-  key_name = "Tanmoy"
+  key_name = "tanmoy2"
   instance_type = "t2.micro"
 
   tags = {
