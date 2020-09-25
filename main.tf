@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket  = "techlanders-statefile"
+    bucket  = "tanmoytfstate"
     key  = "terraform/state"
     region = "us-east-2"
 #   access_key = "XXXXXXXXXXXXXXXXXXXXXX"
@@ -33,7 +33,7 @@ provisioner "remote-exec" {
     type     = "ssh"
     user     = "ubuntu"
     insecure = "true"
-    private_key = "${file("/tmp/tanmoy-cicd.pem")}"
+    private_key = "${file("/tmp/Tanmoy.pem")}"
     host     =  aws_instance.myawsserver.public_ip
   }
 }
